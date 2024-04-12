@@ -3593,7 +3593,7 @@ case "$1" in
 				break
 			fi
 		done < /tmp/skynet/skynet.manifest
-		awk -F/ '{print $0" -Oz "$NF}' /jffs/addons/shared-whitelists/shared-Skynet-whitelist | xargs "curl" -fsLZ
+		awk -F/ '{print $0" -Oz "$NF}' /jffs/addons/shared-whitelists/shared-Skynet-whitelist | xargs "curl" -fLZ
 		dos2unix "${skynetloc}"/lists/* 2>/dev/null
 		for file in *; do
 			grep -qF "$file" /tmp/skynet/skynet.manifest || rm -rf "$file"
